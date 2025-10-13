@@ -36,6 +36,22 @@ public class D_IfElse {
             System.out.println("all are fasle");
         }
 
+        /*ternary operator*/
+        int userAge = 20;
+        boolean ofAge = userAge > 18 ? true:false;
+        if (ofAge) {
+            System.out.println("come inside");
+        } else {
+            System.out.println("get out");}
+
+        /*another example*/
+
+        int price = 100;
+        String discount = "low";
+        int discountFactor = discount == "low" ? 10:35;
+        int finalPrice = price - (price /100 * discountFactor);
+        System.out.println("final price is " + finalPrice);
+
 
     }
 }
