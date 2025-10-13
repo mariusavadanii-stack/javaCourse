@@ -29,6 +29,27 @@ public class A_variables {
 
         System.out.println("my first " + firstByte +  "and my second" +secondInt);
 
+/* float boolean char*/
+
+        float firstFloat = 23.56f;
+        double firstDouble = 456.789;
+        boolean firstBoolean = true;
+        char firstChar = 'd';   // single character
+
+        /*Wrapper classes =*/
+        int maximumIntValue = Integer.MAX_VALUE; /* get of a property*/
+        System.out.println("the max " + maximumIntValue);
+
+    /*casting = give a variable a type or change that type*/
+        /*widening*/
+        int smallInt = 20;
+        double smallDouble = smallInt;
+        System.out.println(smallDouble);
+        /*narrowing*/
+        double anotherDouble = 345.789;
+        int anotherInt = (int) anotherDouble; /*forcing casting*/
+        System.out.println(anotherInt);
+
 
 
 
