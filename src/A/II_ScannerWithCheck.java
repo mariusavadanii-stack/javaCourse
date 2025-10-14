@@ -1,6 +1,6 @@
 package A;
 
-
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class II_ScannerWithCheck {
@@ -17,7 +17,9 @@ public class II_ScannerWithCheck {
 
         if (hasNextInt) {
             int birthYear = scanner.nextInt();
-            int age = 2025 - birthYear;
+            LocalDate localDate = LocalDate.now();
+            int year = localDate.getYear();
+            int age = year - birthYear;
             System.out.printf("Your age is :" + age);
             } else {
             System.out.println("could not calculate age,pls put an int :");
