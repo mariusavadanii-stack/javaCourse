@@ -10,7 +10,7 @@ package B;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class InfiniteAverage {
+public class D4_exercise_one {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -20,13 +20,12 @@ public class InfiniteAverage {
             calculateAverage(scanner);
 
             // Ask if the user wants to restart or exit
-            System.out.print("Do you want to start over? (yes to continue, any other key to exit): ");
+            System.out.print("start over? (yes 4 continue, any other key to exit): ");
             String response = scanner.next();
             continueCalculating = response.equalsIgnoreCase("yes");
         }
 
-        scanner.close(); // Close the scanner to avoid resource leaks
-        System.out.println("Thank you for using the average calculator. Goodbye!");
+        System.out.println(" Goodbye!");
     }
 
     private static void calculateAverage(Scanner scanner) {
@@ -48,13 +47,13 @@ public class InfiniteAverage {
         System.out.println(question);
         while (true) {
             try {
-                return Integer.parseInt(scanner.next()); // Read input and parse it to an integer
+                return Integer.parseInt(scanner.next());
             } catch (NumberFormatException e) {
-                System.out.println("Invalid input! Please insert a valid integer."); // Handling invalid input
+                System.out.println("Invalid input! insert an integer.");
             }
         }
     }
 }
 
 
-}
+
