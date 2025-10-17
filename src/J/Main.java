@@ -1,64 +1,55 @@
-package J;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class Main {
+public class CalculatorApp {
+
     public static void main(String[] args) {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        Calculator calculator = new Calculator();
-        menu(bufferedReader, calculator);
-    } // end main
-
-    private static int takeInput(BufferedReader bufferedReader, String question) {
-        System.out.println(question);
-        try {
-            return Integer.parseInt(bufferedReader.readLine());
-        } catch (Exception e) {
-            System.out.println("Please insert an integer.");
-            return takeInput(bufferedReader, "Try again: ");
-        }
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        menu(reader);
     }
 
-    public static void menu(BufferedReader bufferedReader, Calculator calculator) {
+    public static void menu(BufferedReader reader) {
         while (true) {
-            System.out.println();
-            int menuChoice = takeInput(bufferedReader, "Calculator Menu: \n1) Add\n2) Subtract\n3) Multiply\n4) Divide\n5) Exit");
-            switch (menuChoice) {
-                case 1 -> performOperation(bufferedReader, calculator, "add");
-                case 2 -> performOperation(bufferedReader, calculator, "subtract");
-                case 3 -> performOperation(bufferedReader, calculator, "multiply");
-                case 4 -> performOperation(bufferedReader, calculator, "divide");
-                case 5 -> System.exit(0);
-                default -> System.out.println("Please choose a valid option between 1 and 5.");
+            System.out.println("\nCalculator Menu:");
+            System.out.println("1) Add");
+            System.out.println("2) Subtract");
+            System.out.println("3) Multiply");
+            System.out.println("4) Divide");
+            System.out.println("5) Exit");
+
+            int choice = takeInput(reader, "Choose an option (1-5):");
+
+            if (choice == 5) {
+                System.out.println("Exiting calculator. Goodbye!");
+                System.exit(0);
             }
-        }
-    }
 
-    private static void performOperation(BufferedReader bufferedReader, Calculator calculator, String operation) {
-        double num1 = takeInputDouble(bufferedReader, "Enter the first number: ");
-        double num2 = takeInputDouble(bufferedReader, "Enter the second number: ");
+            int num1 = takeInput(reader, "Enter first number:");
+            int num2 = takeInput(reader, "Enter second number:");
 
-        switch (operation) {
-            case "add" -> System.out.println("Result: " + calculator.add(num1, num2));
-            case "subtract" -> System.out.println("Result: " + calculator.subtract(num1, num2));
-            case "multiply" -> System.out.println("Result: " + calculator.multiply(num1, num2));
-            case "divide" -> {
-                double result = calculator.divide(num1, num2);
-                if (result != Double.NaN) {
-                    System.out.println("Result: " + result);
+            switch (choice) {
+                case 1 -> System.out.println("Result: " + (num1 + num2));
+                case 2 -> System.out.println("Result: " + (num1 - num2));
+                case 3 -> System.out.println("Result: " + (num1 * num2));
+                case 4 -> {
+                    if (num2 == 0) {
+                        System.out.println("Error: Cannot divide by zero.");
+                    } else {
+                        System.out.println("Result: " + (num1 / num2));
+                    }
                 }
+                default -> System.out.println("Invalid choice. Please select between 1 and 5.");
             }
         }
     }
 
-    private static double takeInputDouble(BufferedReader bufferedReader, String question) {
-        System.out.println(question);
+    private static int takeInput(BufferedReader reader, String prompt) {
+        System.out.println(prompt);
         try {
-            return Double.parseDouble(bufferedReader.readLine());
+            return Integer.parseInt(reader.readLine());
         } catch (Exception e) {
-            System.out.println("Please insert a valid number.");
-            return takeInputDouble(bufferedReader, "Try again: ");
+            System.out.println("Please enter a valid integer.");
+            return takeInput(reader, prompt);
         }
     }
 }
