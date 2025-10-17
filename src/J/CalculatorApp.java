@@ -45,13 +45,13 @@ public class CalculatorApp {
         }
     }
 
-    private static int takeInput(BufferedReader reader, String prompt) {
-        System.out.println(prompt);
+    private static int takeInput(BufferedReader bufferedReader, String question) {
+        System.out.println(question);
         try {
-            return Integer.parseInt(reader.readLine());
+            return Integer.parseInt(bufferedReader.readLine());
         } catch (Exception e) {
             System.out.println("Please enter a valid integer.");
-            return takeInput(reader, prompt);
+            return takeInput(bufferedReader, question);
         }
     }
 }
