@@ -1,14 +1,16 @@
+package J;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class CalculatorApp {
 
     public static void main(String[] args) {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        menu(reader);
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        menu(bufferedReader);
     }
 
-    public static void menu(BufferedReader reader) {
+    public static void menu(BufferedReader bufferedReader) {
         while (true) {
             System.out.println("\nCalculator Menu:");
             System.out.println("1) Add");
@@ -17,15 +19,15 @@ public class CalculatorApp {
             System.out.println("4) Divide");
             System.out.println("5) Exit");
 
-            int choice = takeInput(reader, "Choose an option (1-5):");
+            int choice = takeInput(bufferedReader, "Choose an option (1-5):");
 
             if (choice == 5) {
                 System.out.println("Exiting calculator. Goodbye!");
                 System.exit(0);
             }
 
-            int num1 = takeInput(reader, "Enter first number:");
-            int num2 = takeInput(reader, "Enter second number:");
+            int num1 = takeInput(bufferedReader, "Enter first number:");
+            int num2 = takeInput(bufferedReader, "Enter second number:");
 
             switch (choice) {
                 case 1 -> System.out.println("Result: " + (num1 + num2));
